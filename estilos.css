@@ -1,0 +1,255 @@
+/* ==========================================================
+   Juego del Ahorcado - Hoja de estilos
+   ========================================================== */
+
+:root {
+    --fondo: #0f172a;
+    --tarjeta: #1e293b;
+    --borde: #334155;
+    --texto: #e2e8f0;
+    --suave: #94a3b8;
+    --acento: #f59e0b;
+    --acento-oscuro: #d97706;
+    --error: #ef4444;
+    --exito: #22c55e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: var(--texto);
+    background: radial-gradient(circle at top, #1e3a5f 0%, var(--fondo) 60%);
+}
+
+/* Tarjeta central que contiene el juego */
+.tarjeta {
+    width: 100%;
+    max-width: 560px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    text-align: center;
+}
+
+/* Cabecera */
+.cabecera {
+    margin-bottom: 28px;
+}
+
+.cabecera h1 {
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.cabecera h1 span {
+    color: var(--acento);
+}
+
+.subtitulo {
+    color: var(--suave);
+    margin-top: 6px;
+}
+
+p {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+/* Formulario */
+label {
+    display: block;
+    color: var(--suave);
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    width: 64px;
+    height: 56px;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: lowercase;
+    color: var(--texto);
+    background: var(--fondo);
+    border: 2px solid var(--borde);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--acento);
+}
+
+button {
+    height: 56px;
+    margin-left: 8px;
+    padding: 0 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e1b16;
+    background: var(--acento);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: var(--acento-oscuro);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ==========================================================
+   Zona de juego
+   ========================================================== */
+
+/* Aviso de letra repetida */
+.aviso {
+    margin: 0 0 20px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    color: #fde68a;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 8px;
+}
+
+/* Palabra secreta en casillas */
+.palabra {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.casilla {
+    width: 36px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--fondo);
+    border-bottom: 3px solid var(--borde);
+    border-radius: 6px 6px 0 0;
+}
+
+.casilla.acertada {
+    color: var(--acento);
+    border-bottom-color: var(--acento);
+}
+
+/* Vidas con corazones */
+.vidas {
+    margin-bottom: 28px;
+}
+
+.corazon {
+    font-size: 1.6rem;
+    margin: 0 3px;
+    color: var(--error);
+    transition: opacity 0.3s;
+}
+
+.corazon.perdido {
+    color: var(--borde);
+}
+
+.vidas p {
+    margin-top: 4px;
+    color: var(--suave);
+}
+
+.vidas strong {
+    color: var(--texto);
+}
+
+/* Formulario en una fila */
+.formulario {
+    margin-bottom: 28px;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Letras usadas */
+.letras-usadas {
+    padding-top: 20px;
+    border-top: 1px solid var(--borde);
+}
+
+.letras-usadas h2 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--suave);
+    margin-bottom: 12px;
+}
+
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+}
+
+.etiqueta {
+    min-width: 32px;
+    padding: 4px 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 999px;
+}
+
+.etiqueta.bien {
+    color: #bbf7d0;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.etiqueta.mal {
+    color: #fecaca;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+.vacio {
+    color: var(--suave);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+    .tarjeta {
+        padding: 28px 18px;
+    }
+
+    .casilla {
+        width: 24px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
