@@ -54,10 +54,16 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahorcado</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Juego del Ahorcado</h1>
+<main class="tarjeta">
+    <header class="cabecera">
+        <h1>Juego del <span>Ahorcado</span></h1>
+        <p class="subtitulo">Adivina el animal antes de quedarte sin vidas</p>
+    </header>
     <p>Palabra secreta: <?php echo $_SESSION['letras_acertadas']; ?></p>
     <p>Vidas restantes: <?php echo $_SESSION['vidas']; ?></p>
     <form method="post">
@@ -66,5 +72,6 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
         <button type="submit">Adivinar</button>
     </form>
     <p>Letras usadas: <?php echo implode(', ', $_SESSION['letras_usadas']); ?></p>
+</main>
 </body>
 </html>

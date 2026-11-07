@@ -1,0 +1,115 @@
+/* ==========================================================
+   Juego del Ahorcado - Hoja de estilos
+   ========================================================== */
+
+:root {
+    --fondo: #0f172a;
+    --tarjeta: #1e293b;
+    --borde: #334155;
+    --texto: #e2e8f0;
+    --suave: #94a3b8;
+    --acento: #f59e0b;
+    --acento-oscuro: #d97706;
+    --error: #ef4444;
+    --exito: #22c55e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    color: var(--texto);
+    background: radial-gradient(circle at top, #1e3a5f 0%, var(--fondo) 60%);
+}
+
+/* Tarjeta central que contiene el juego */
+.tarjeta {
+    width: 100%;
+    max-width: 560px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    text-align: center;
+}
+
+/* Cabecera */
+.cabecera {
+    margin-bottom: 28px;
+}
+
+.cabecera h1 {
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.cabecera h1 span {
+    color: var(--acento);
+}
+
+.subtitulo {
+    color: var(--suave);
+    margin-top: 6px;
+}
+
+p {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+/* Formulario */
+label {
+    display: block;
+    color: var(--suave);
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    width: 64px;
+    height: 56px;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: lowercase;
+    color: var(--texto);
+    background: var(--fondo);
+    border: 2px solid var(--borde);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--acento);
+}
+
+button {
+    height: 56px;
+    margin-left: 8px;
+    padding: 0 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e1b16;
+    background: var(--acento);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: var(--acento-oscuro);
+}
+
+button:active {
+    transform: scale(0.97);
+}
