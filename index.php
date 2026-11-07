@@ -2,7 +2,8 @@
 session_start();
 
 // Lista de palabras para el juego
-$palabras = ['elefante', 'jirafa', 'hipopotamo', 'rinoceronte', 'cocodrilo', 'camello', 'chimpance'];
+$palabras = ['elefante', 'jirafa', 'hipopotamo', 'rinoceronte', 'cocodrilo', 'camello', 'chimpance',
+             'leon', 'tigre', 'canguro', 'pinguino', 'koala', 'flamenco', 'tortuga'];
 
 // Inicializar el juego
 if (!isset($_SESSION['palabra'])) {
@@ -38,9 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['letra'])) {
 
 // Comprobar si se ha ganado o perdido
 if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
-    echo "¡Enhorabuena! Has ganado :) La palabra era: " . $_SESSION['palabra'] . "<br>";
+    // Partida ganada: se redirige a la página de victoria
+    $palabra = $_SESSION['palabra'];
+    $vidas = $_SESSION['vidas'];
     session_destroy();
-    echo '<a href="">Jugar de nuevo</a>';
+    header('Location: ganado.php?palabra=' . urlencode($palabra) . '&vidas=' . $vidas);
     exit();
 } elseif ($_SESSION['vidas'] <= 0) {
     echo "Lo siento, has perdido :( La palabra era: " . $_SESSION['palabra'] . "<br>";
