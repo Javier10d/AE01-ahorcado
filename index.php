@@ -46,9 +46,10 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
     header('Location: ganado.php?palabra=' . urlencode($palabra) . '&vidas=' . $vidas);
     exit();
 } elseif ($_SESSION['vidas'] <= 0) {
-    echo "Lo siento, has perdido :( La palabra era: " . $_SESSION['palabra'] . "<br>";
+    // Partida perdida: se redirige a la página de derrota
+    $palabra = $_SESSION['palabra'];
     session_destroy();
-    echo '<a href="">Jugar de nuevo</a>';
+    header('Location: perdido.php?palabra=' . urlencode($palabra));
     exit();
 }
 ?>
